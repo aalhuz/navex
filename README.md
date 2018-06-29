@@ -1,3 +1,3 @@
 # navex
 
-Navex will be available in early August. 
+Navex will be available soon. 
