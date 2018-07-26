@@ -1,0 +1,3 @@
+[submodule "src/crawler4j"]
+	path = src/crawler4j
+	url = git@github.com:aalhuz/crawler4j.git
