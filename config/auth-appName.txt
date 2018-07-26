@@ -1,0 +1,1 @@
+username_used_for_login,password_used_for_login,http://localhost/appName/login.php?mode=login(URL of the login page),user(the name attribute in the login form that stores the username),passwd (the name attribute in the login form that stores the password)
