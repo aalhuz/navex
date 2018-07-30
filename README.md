@@ -47,9 +47,9 @@ Prerequisites: install Z3 solver and Z3-str2 extension. We have used Z3-str2 in 
  
 # Step 2: concrete exploit generation #
 Prerequisites: Deploy on a server (e.g., localhost) the applications that Step 1 found vulnerabilities in them (not all the applications that you have tested). Read more about this under "setup" in the evaluation section of our paper.
- Xdebug for trace generation is required too. We have used version 2.5.2 in our evaluation. Xdebug and its installation instructions are at https://xdebug.org/. Additionally, (Narcissus installation)
+ Xdebug for trace generation is required too. We have used version 2.5.2 in our evaluation. Xdebug and its installation instructions are at https://xdebug.org/.
 
-In this step, Navex crawls an application to construct a navigation graph (Neo4j graph). 
+In this step, Navex crawls web applications to construct their navigation graphs (Neo4j graph). 
 
 
 ## The Navigation graph setup ##
@@ -67,10 +67,10 @@ We have extended crawler4j in the fork https://github.com/aalhuz/crawler4j to al
             cd navex
            ./run.pl data 1 config/auth-appName.txt $SEED_URL 
 
-config/auth-appName.txt is a file that you have to create to store login information for appName. A sample file is provided. $SEED_URL is the seed URL for the crawler (e.g., http://localhost/appName/index.php). While crawling the applications, nodes and edges will be added to navigationGraph.db simultaneously. 
+config/auth-appName.txt is a file that you have to create to store login information for appName. A sample file is provided. $SEED_URL is the seed URL for the crawler (e.g., http://localhost/appName/index.php). While crawling the applications, nodes and edges will be added to the navigationGraph.db simultaneously. 
 
 ## Concrete exploit generation ##
-To find navigation paths to exploit seeds. We have to traverse the Navigation graph using  exploitFinding.py in our python-joern fork. This wrapper script invokes traversals that check the inclusion map (in results/include_map_resolution_results.txt), matches it with the exploit seeds (i.e., exploit strings), and finally outputs the concrete exploits in results/navigation_sequences.txt 
+To find navigation paths to exploit seeds. We have to traverse the Navigation graph using  exploitFinding.py in our python-joern fork. This wrapper script invokes traversals that check the inclusion map (in results/include_map_resolution_results.txt), matches it with the exploit seeds (i.e., exploit strings), and finally outputs the concrete exploits in results/navigation_sequences.txt. 
  
 		    cd python-joern
 		    python exploitFinding.py $ATTACK_TYPE
