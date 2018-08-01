@@ -1,5 +1,5 @@
 # navex
-Navex is an exploit generation framework for web applications. It is composed of two main steps: (1) vulnerable sinks identification by performing static analysis, and (2) the generation of concrete exploits through dynamic analysis of web apps, for the identified vulnerable sinks. Navex extends/uses many open-source tools: Joern, PHPJoern, Z3, Z3-str2, crawler4j, Narcissus JavaScript Engin, and Xdebug. For more information on Navex, please read our paper "Precise and Scalable Exploit Generation for Dynamic Web Applications" published at USENIX Security 2018.
+Navex is an exploit generation framework for web applications. It is composed of two main steps: (1) vulnerable sinks identification by performing static analysis, and (2) the generation of concrete exploits through dynamic analysis of web apps, for the identified vulnerable sinks. Navex extends/uses many open-source tools: Joern, PHPJoern, Z3, Z3-str2, crawler4j, Narcissus JavaScript engine, and Xdebug. For more information on Navex, please read our paper "Precise and Scalable Exploit Generation for Dynamic Web Applications" published at USENIX Security 2018.
 
 # Step 1: vulnerable sinks identification #
 For Step 1, we enhanced Joern and PHPJoern. The enhanced tools are forks of the original Joern and PHPJoern, and available at https://github.com/aalhuz/joern/tree/navex and https://github.com/aalhuz/phpjoern/tree/navex.   
@@ -48,7 +48,7 @@ Prerequisites: install Z3 solver and Z3-str2 extension. We have used Z3-str2 in 
 # Step 2: concrete exploit generation #
 Prerequisites: Deploy on a server (e.g., localhost) the applications that Step 1 found vulnerabilities in them (not all the applications that you have tested). Read more about this under "setup" in the evaluation section of our paper.
  Xdebug for trace generation is required too. We have used version 2.5.2 in our evaluation. Xdebug and its installation instructions are at https://xdebug.org/.
-In addtion, Narcissus and spiderMonkey 1.8.5 JavaScript engin are required.Download spiderMonkey 1.8.5 JS engin from https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/1.8.5 and build it. You can find the build instructions at
+In addition, Narcissus and spiderMonkey 1.8.5 JavaScript engine are required.Download spiderMonkey 1.8.5 JS engine from https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/1.8.5 and build it. You can find the build instructions at
 https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Build_Documentation. Let $SpiderMonky = the directory of the spiderMonkey 1.8.5 installation folder. Download our modified version of Narcissus JavaScript interpreter at https://github.com/aalhuz/narcissus and place the downloaded folder inside $SpiderMonky/js. Finally, edit the path to narcissus folder inside "extractJSConstraints" function in https://github.com/aalhuz/navex/blob/master/src/Main.java.
 
 In this step, Navex crawls web applications to construct their navigation graphs (Neo4j graph). 
