@@ -2,14 +2,14 @@
 Navex is an exploit generation framework for web applications. It is composed of two main steps: (1) vulnerable sinks identification by performing static analysis, and (2) the generation of concrete exploits through dynamic analysis of web apps, for the identified vulnerable sinks. Navex extends/uses many open-source tools: Joern, PHPJoern, Z3, Z3-str2, crawler4j, Narcissus JavaScript Engin, and Xdebug. For more information on Navex, please read our paper "Precise and Scalable Exploit Generation for Dynamic Web Applications" published at USENIX Security 2018.
 
 # Step 1: vulnerable sinks identification #
-For Step 1, we enhanced Joern and PHPJoern. The enhanced tools are forks of the original Joern and PHPJoern, and available at https://github.com/aalhuz/joern and https://github.com/aalhuz/phpjoern.   
+For Step 1, we enhanced Joern and PHPJoern. The enhanced tools are forks of the original Joern and PHPJoern, and available at https://github.com/aalhuz/joern/tree/navex and https://github.com/aalhuz/phpjoern/tree/navex.   
 
 
 ## Using our PHPJoern and Joern forks ##
 
-- Follow all installation instructions at https://github.com/aalhuz/phpjoern.
+- Follow all installation instructions at https://github.com/aalhuz/phpjoern/tree/navex.
 - Before parsing an application using PHPJoern, the database schema of the application has to analyzed and formatted as a CSV file.
-The dbAnalysis package in https://github.com/aalhuz/joern/tree/dev/projects/extensions/joern-php/src/main/java/dbAnalysis will parse the schema files and produce one file (by default called schema.csv) that has the schema information as CSV file.
+The dbAnalysis package in https://github.com/aalhuz/joern/tree/navex/projects/extensions/joern-php/src/main/java/dbAnalysis will parse the schema files and produce one file (by default called schema.csv) that has the schema information as CSV file.
 
 - Run the main class in DBAnalysis.java and provide the directory that has the schema files. For example
 
@@ -29,9 +29,9 @@ $PATH is the path to the schema.csv file, and $APPLICATION is the application to
 
 ## Graph Traversals guided by our Attack Dictionary ##
 
-To find vulnerabilities using our attack dictionary, we need to search the enhanced Code Property graph using gremlin queries (graph traversals). We have added several Joern-steps in our python-joern fork at https://github.com/aalhuz/python-joern.
+To find vulnerabilities using our attack dictionary, we need to search the enhanced Code Property graph using gremlin queries (graph traversals). We have added several Joern-steps in our python-joern fork at https://github.com/aalhuz/python-joern/tree/navex.
  
-- Follow the installation instructions at https://github.com/aalhuz/python-joern. The python wrapper static-main.py is the script that invokes Analysis.py, which has our attack dictionary.
+- Follow the installation instructions at https://github.com/aalhuz/python-joern/tree/navex. The python wrapper static-main.py is the script that invokes Analysis.py, which has our attack dictionary.
 
 - The traversals output will be in results/static_analysis_results.txt and results/include_map_results.txt. The first file has the analysis results that summarizes all found vulnerable paths and safe sinks as well. The vulnerable paths are written as TAC formulas as described in the paper. The Second file has PHP files inclusion relationships, which is going to be used in Step 2. Note, the paths to the result files are hardcoded in static-main.py and need to be changed before running the python script.
 
