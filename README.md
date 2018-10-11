@@ -25,7 +25,9 @@ $PATH is the path to the schema.csv file, and $APPLICATION is the application to
 
 - Edit joern/projects/extensions/joern-php/build.gradle as explained in the file. 
 
-- Follow the rest of the instructions on how to generate code property graphs with Joern and import them into Neo4j.
+- Follow the rest of the instructions on how to generate code property graphs with Joern and import them into Neo4j*.
+
+- *please check this https://github.com/aalhuz/batch-importer2.1. It has the missing binary that you will need to export your graph into Neo4j. 
 
 ## Graph Traversals guided by our Attack Dictionary ##
 
