@@ -66,7 +66,7 @@ Then, point to your Neo4J installation and start the server.
                			
 
 ## Application crawling ##
-We have extended crawler4j in the fork https://github.com/aalhuz/crawler4j to allow for web forms and JavaScript reasoning.  
+We have extended crawler4j in the fork https://github.com/aalhuz/crawler4j/tree/navex to allow for web forms and JavaScript reasoning.  
 - To run the extended crawler and construct the Navigation Graph, edit "run.pl" in navex directory as explained in the script. Then, run "run.pl" as the following 
             
             cd navex
